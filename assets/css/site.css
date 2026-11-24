@@ -7,7 +7,7 @@
   --tech-deep: #23004E;     /* nền tối */
   --tech-soft: #F9F1FF;     /* nền sáng */
   --tech-light: #D8CBFF;    /* chữ tím trên nền tối */
-  --gold: #A8832F;          /* vàng kim đậm trên nền sáng */
+  --gold: #806220;          /* vàng kim đậm trên nền sáng (đổi từ #A8832F cho đủ tương phản 4.5:1) */
   --gold-light: #C9A24B;    /* vàng kim trên nền tối */
   --paper: #FFFFFF;
   --ink: #1F2328;
@@ -131,3 +131,147 @@ summary { cursor: pointer; font-weight: 600; color: var(--tech); }
 }
 
 .sym { font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif; }
+
+/* Trang chủ UNI TECH */
+.hero-home { padding: 56px 0 104px; }
+.hero-home .wrap { display: block; }
+.hero-home .eyebrow { color: var(--gold-light); }
+.hero-home .lead { max-width: 720px; }
+.products { background: var(--tech-soft); }
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 48px; }
+.product-card { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 32px; display: flex; flex-direction: column; gap: 16px; }
+.product-card .logo { height: 36px; width: auto; align-self: flex-start; }
+.wordmark { font-size: 30px; font-weight: 700; color: var(--tech-deep); letter-spacing: .01em; line-height: 36px; }
+.wordmark span { color: var(--gold); }
+.product-card h3 { font-size: 21px; color: var(--tech-deep); }
+.points { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; color: var(--muted); font-size: 16px; }
+.points li { position: relative; padding-left: 26px; }
+.points li::before { content: ""; position: absolute; left: 0; top: 9px; width: 10px; height: 10px; border-radius: 50%; background: var(--tech); }
+.product-card .tag { align-self: flex-start; font-size: 13px; font-weight: 600; padding: 5px 12px; border-radius: 999px; background: var(--tech-soft); color: var(--tech); }
+.product-card .btn { align-self: flex-start; margin-top: auto; }
+.cta { text-align: left; }
+.cta .section-title { color: #FFFFFF; }
+.cta .section-lead { color: #D9D0EE; margin-bottom: 32px; }
+.draft-note { background: #FFF7D6; color: #3D3200; font-size: 14px; padding: 2px 6px; border-radius: 4px; }
+@media (max-width: 900px) { .grid-2 { grid-template-columns: 1fr; } .hero-home { padding: 24px 0 72px; } }
+
+/* Hiệu ứng nhẹ bằng CSS: lưới mờ + vầng sáng ở phần mở đầu */
+.hero-fx { position: relative; overflow: hidden; }
+.hero-fx::before { content: ""; position: absolute; inset: 0; pointer-events: none;
+  background-image: linear-gradient(rgba(216,203,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(216,203,255,.07) 1px, transparent 1px);
+  background-size: 48px 48px; -webkit-mask-image: radial-gradient(ellipse at 70% 30%, #000 0%, transparent 70%); mask-image: radial-gradient(ellipse at 70% 30%, #000 0%, transparent 70%); }
+.hero-fx::after { content: ""; position: absolute; width: 520px; height: 520px; right: -120px; top: -160px; border-radius: 50%; pointer-events: none;
+  background: radial-gradient(circle, rgba(91,45,160,.55) 0%, transparent 70%); animation: glow 9s ease-in-out infinite alternate; }
+.hero-fx .wrap { position: relative; z-index: 1; }
+@keyframes glow { from { transform: translate(0, 0); opacity: .8; } to { transform: translate(-60px, 40px); opacity: 1; } }
+.lift .card, .lift .product-card { transition: transform .2s ease, box-shadow .2s ease; }
+.lift .card:hover, .lift .product-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(35,0,78,.10); }
+@media (prefers-reduced-motion: reduce) { .hero-fx::after { animation: none; } .lift .card, .lift .product-card { transition: none; } }
+
+/* Trang IGM360 */
+.dark .wordmark { color: #FFFFFF; }
+.dark .wordmark span { color: var(--gold-light); }
+.wordmark.big { font-size: 40px; line-height: 46px; margin-bottom: 24px; }
+.shot { border: 2px dashed var(--tech-light); border-radius: var(--radius); background: rgba(216,203,255,.08); min-height: 260px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 24px; color: #D9D0EE; font-size: 15px; }
+.shot.light { border-color: #B9A6E6; background: var(--paper); color: var(--muted); min-height: 160px; margin-top: 16px; }
+.soon { border-style: dashed; }
+.soon .tag { align-self: flex-start; }
+.card .tag { display: inline-block; font-size: 13px; font-weight: 600; padding: 4px 10px; border-radius: 999px; background: var(--tech-soft); color: var(--tech); margin-bottom: 12px; }
+.drive { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; margin-top: 40px; }
+.drive ul { margin: 0; padding-left: 20px; color: var(--muted); display: grid; gap: 10px; }
+.faq { margin-top: 40px; display: grid; gap: 12px; }
+.faq details { margin-top: 0; }
+.faq details p { margin-top: 10px; color: var(--muted); font-size: 16px; }
+.compare { width: 100%; border-collapse: collapse; margin-top: 32px; font-size: 16px; }
+.compare th, .compare td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.compare th { color: var(--tech-deep); }
+@media (max-width: 900px) { .drive { grid-template-columns: 1fr; } }
+
+/* Ảnh chụp giao diện IGM360 (ảnh thật bản 0.7.9, dữ liệu thử) */
+.screen { margin: 0; }
+.screen img { width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--line); box-shadow: 0 16px 36px rgba(35,0,78,.18); background: var(--paper); }
+.screen figcaption { font-size: 13px; color: var(--muted); margin-top: 8px; }
+.dark .screen img { border-color: rgba(216,203,255,.35); box-shadow: 0 24px 48px rgba(0,0,0,.35); }
+.dark .screen figcaption { color: #D9D0EE; }
+.card .screen { margin-top: 16px; }
+.card .screen img { box-shadow: 0 6px 16px rgba(35,0,78,.10); }
+
+.hero-igm .wrap { grid-template-columns: 1fr 1.1fr; }
+@media (max-width: 900px) { .hero-igm .wrap { grid-template-columns: 1fr; } }
+.hero-igm h1 { font-size: clamp(32px, 4vw, 48px); }
+
+/* Trang chính sách riêng tư */
+.policy-head { padding: 40px 0 64px; }
+.policy-head h1 { font-size: clamp(30px, 4vw, 44px); color: #FFFFFF; margin-top: 16px; }
+.policy-head .lead { color: #D9D0EE; margin-top: 12px; }
+.policy { padding: 56px 0 80px; }
+.policy .wrap { max-width: 820px; }
+.policy h2 { font-size: 22px; color: var(--tech-deep); margin: 36px 0 12px; }
+.policy p, .policy li { color: var(--ink); font-size: 17px; }
+.policy p + p { margin-top: 10px; }
+.policy ul, .policy ol { padding-left: 22px; display: grid; gap: 8px; margin: 10px 0 0; }
+.policy a { color: var(--tech); }
+.policy code { background: var(--tech-soft); padding: 1px 6px; border-radius: 6px; word-break: break-all; }
+.policy .note { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 15px; }
+.screen a { display: block; cursor: zoom-in; }
+
+/* ===== Bảng màu riêng từng trang sản phẩm (trang chủ giữ nhận diện UNI TECH) ===== */
+
+/* IGM360 – theo bảng màu giao diện phần mềm IGM360. 04 màu nền: #FFFFFF · #F5F6F7 · #EEF3FF · #1456F0 */
+.theme-igm {
+  --tech: #1456F0;        /* xanh chính */
+  --tech-deep: #1456F0;   /* nền khối liên hệ, chân trang */
+  --tech-soft: #F5F6F7;   /* nền xám */
+  --tech-light: #FFFFFF;
+  --gold: #1456F0;        /* chữ nhỏ đầu khối */
+  --gold-light: #FFFFFF;
+  --ink: #1F2329;         /* chữ */
+  --muted: #646A73;       /* chữ phụ */
+  --line: #DEE0E3;        /* đường kẻ */
+}
+.theme-igm > .dark:first-child { background: #EEF3FF; color: var(--ink); }
+.theme-igm > .dark:first-child .nav a { color: var(--ink); }
+.theme-igm > .dark:first-child .nav a:hover { color: var(--tech); }
+.theme-igm > .dark:first-child .lang { border-color: var(--line); }
+.theme-igm > .dark:first-child .lang button { color: var(--muted); }
+.theme-igm > .dark:first-child .lang button[aria-pressed="true"] { background: var(--tech); color: #FFFFFF; }
+.theme-igm .hero h1 { color: var(--ink); }
+.theme-igm .hero h1 .accent { color: var(--tech); }
+.theme-igm .hero .lead { color: #3D434C; }
+.theme-igm .hero .btn-gold { background: var(--tech); color: #FFFFFF; }
+.theme-igm .hero .btn-line { border-color: var(--tech); color: var(--tech); background: #FFFFFF; }
+.theme-igm .hero-fx::before { background-image: linear-gradient(rgba(20,86,240,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(20,86,240,.06) 1px, transparent 1px); }
+.theme-igm .hero-fx::after { background: radial-gradient(circle, rgba(20,86,240,.18) 0%, transparent 70%); }
+.theme-igm .dark .wordmark { color: var(--ink); }
+.theme-igm .wordmark span, .theme-igm .dark .wordmark span { color: var(--tech); }
+.theme-igm > .dark:first-child .screen img { border-color: var(--line); box-shadow: 0 20px 40px rgba(20,86,240,.15); }
+.theme-igm > .dark:first-child .screen figcaption { color: var(--muted); }
+.theme-igm .num { background: #EEF3FF; color: var(--tech); }
+.theme-igm .card .tag { background: #EEF3FF; color: var(--tech); }
+.theme-igm .cta .section-lead { color: #FFFFFF; }
+.theme-igm .cta .btn-gold { background: #FFFFFF; color: var(--tech); }
+.theme-igm .site-footer nav a { color: #FFFFFF; }
+.theme-igm .site-footer small { color: #FFFFFF; }
+.theme-igm .dark { color: #FFFFFF; }
+.theme-igm .shot.light { border-color: #A9C1F7; }
+
+/* UNI MATE – tím + cam vàng. 03 màu nền khối: #FFFFFF · #F6F1FB · #502D6F; nút cam vàng #FFB825 */
+.theme-unimate {
+  --tech: #642E8A;        /* tím chính */
+  --tech-deep: #502D6F;   /* tím đậm */
+  --tech-soft: #F6F1FB;   /* tím rất nhạt */
+  --tech-light: #E6D6F5;  /* chữ tím nhạt trên nền tím đậm */
+  --gold: #8A4B00;        /* chữ nhỏ đầu khối trên nền sáng (cam đậm, đủ tương phản) */
+  --gold-light: #FFB825;  /* cam vàng */
+  --line: #E6DCF0;
+}
+.theme-unimate .btn-gold { color: #3A1F52; }
+.theme-unimate .lang button[aria-pressed="true"] { color: #3A1F52; }
+.theme-unimate .site-footer small { color: #DCCDEB; }
+.theme-igm .section-title, .theme-igm .card h3, .theme-igm .step h3 { color: var(--ink); }
+.theme-igm .cta .section-title { color: #FFFFFF; }
+.theme-igm .step::before { color: var(--tech); }
+.theme-igm .policy-head h1 { color: var(--ink); }
+.theme-igm .policy-head .lead { color: #3D434C; }
+.theme-igm .policy h2 { color: var(--ink); }
+.theme-igm .policy code { background: #EEF3FF; }
