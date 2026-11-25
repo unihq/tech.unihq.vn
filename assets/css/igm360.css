@@ -72,9 +72,13 @@ body.ig-trang { margin: 0; background: #FFFFFF; color: var(--chu); font-family: 
 .ig-icon { width: 44px; height: 44px; border-radius: 12px; display: inline-flex; align-items: center; justify-content: center; color: var(--xanh); background: #FFFFFF; border: 1px solid var(--ke); box-shadow: inset 0 -3px 0 rgba(14,68,196,.10); }
 .ig-icon svg { width: 22px; height: 22px; }
 
-.o-cho { margin-top: 16px; aspect-ratio: 16 / 10; border: 2px dashed var(--vien); border-radius: 10px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 12px; color: var(--chu); font-size: 14px; font-weight: 600; background: #FFFFFF; }
-.o-cho.lon { aspect-ratio: 2 / 1; margin: 0 0 16px; font-size: 16px; }
 
+.anh-pm { margin: 16px 0 0; }
+.anh-pm img { display: block; width: 100%; height: auto; border: 1px solid var(--ke); border-radius: 10px; }
+.anh-pm figcaption { margin-top: 8px; font-size: 13px; color: var(--chu); }
+.anh-pm.lon { margin: 0 0 16px; }
+.anh-pm.lon img { border-radius: 12px; box-shadow: 0 1px 2px rgba(31,35,41,.04), 0 12px 32px -16px rgba(14,68,196,.25); }
+.ig-luoi-sau { margin-top: 16px; }
 .ig-the.dut { border: 1px dashed var(--vien); box-shadow: none; }
 .tag-pt { display: inline-flex; font-size: 12px; font-weight: 700; color: var(--xanh-dam); border: 1px dashed var(--xanh-dam); border-radius: 999px; padding: 5px 10px; line-height: 1; }
 .ig-li { list-style: none; margin: 16px 0 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
